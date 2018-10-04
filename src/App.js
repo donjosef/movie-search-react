@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SearchMovie from './components/SearchMovie/SearchMovie';
-import MovieInfo from './components/MovieInfo/MovieInfo'
+import MovieInfo from './components/MovieInfo/MovieInfo';
+import ListResults from './components/ListResults/ListResults';
 import './App.css';
 
 class App extends Component {
@@ -19,7 +20,10 @@ class App extends Component {
       <div className="App">
         <header>
           Logo
-          <SearchMovie inputVal={this.state.inputVal} changeInput={this.changeInputHandler}/>
+          <div className="MovieSearchContainer">
+            <SearchMovie inputVal={this.state.inputVal} changeInput={this.changeInputHandler}/>
+            <ListResults />
+          </div>
         </header>
         <MovieInfo />
       </div>
