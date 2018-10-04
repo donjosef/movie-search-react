@@ -1,8 +1,10 @@
 import React from 'react';
+import './ListResults.css';
 
 const listResults = props => {
     return (
-      <ul>
+      <ul className="ListResults">
+        <li>ciao</li>
 
       </ul>
     )

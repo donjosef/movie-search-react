@@ -1,0 +1,24 @@
+.MovieInfo {
+  background-color: rgba(0,0,0,0.76);
+  display: flex;
+  margin-top: 20px;
+}
+
+.Poster {
+  width: 45%;
+}
+
+.Details {
+  width: 55%;
+  text-align: left;
+  padding: 20px;
+}
+
+.SubDetails {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.SubDetails div {
+  width: 50%;
+}

@@ -18,9 +18,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header>
-          Logo
-          <div className="MovieSearchContainer">
+        <header className="Header">
+          <div className="Logo">
+            Img
+          </div>
+          <div className="SearchMovieContainer">
             <SearchMovie inputVal={this.state.inputVal} changeInput={this.changeInputHandler}/>
             <ListResults />
           </div>

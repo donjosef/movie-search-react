@@ -1,15 +1,15 @@
 import React from 'react';
+import './SearchMovie.css';
 
 const searchMovie = props => {
 
       return (
-        <div>
           <input
+            className="SearchInput"
             type="search"
             placeholder="Search Movie"
             value={props.inputVal}
             onChange={(e) => props.changeInput(e)} />
-        </div>
       )
 }
 

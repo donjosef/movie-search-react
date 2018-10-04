@@ -1,3 +1,21 @@
 .App {
   text-align: center;
+  width: 800px;
+  margin: 0 auto;
+}
+
+.Header {
+  display: flex;
+  justify-content: space-between;
+  height: 90px;
+  align-items: center;
+}
+
+.Logo {
+  width: 40%;
+}
+
+.SearchMovieContainer {
+  width: 60%;
+  position: relative;
 }
