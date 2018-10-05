@@ -9,7 +9,8 @@ class App extends Component {
 
   state = {
     inputVal: '',
-    movies: []
+    movies: [],
+    selectedMovie: {}
   }
 
   changeInputHandler = (e) => {
@@ -41,6 +42,14 @@ class App extends Component {
     }
   }
 
+  getMovieHandler = (selectedId) => {
+    axios.get(`https://api.themoviedb.org/3/movie/${selectedId}?api_key=4f133e8a6ccd4f69d95e2ec10b7b0918&language=en-US`)
+    .then(res => {
+      const selectedMovie = res.data;
+      this.setState({ selectedMovie });
+    })
+  }
+
   render() {
     return (
       <div className="App" onClick={(e) => this.closeListHandler(e)}>
@@ -51,10 +60,10 @@ class App extends Component {
               </div>
               <div className="SearchMovieContainer">
                 <SearchMovie inputVal={this.state.inputVal} changeInput={this.changeInputHandler}/>
-                <ListResults movies={this.state.movies}/>
+                <ListResults movies={this.state.movies} getMovie={this.getMovieHandler}/>
               </div>
             </header>
-            <MovieInfo />
+            <MovieInfo info={this.state.selectedMovie}/>
         </div>
       </div>
     );
