@@ -8,8 +8,15 @@
   z-index: 5;
   overflow-y: auto;
   height: 250px;
+  color: white;
+  background-color: rgba(0,0,0,0.86);
 }
 
 .ListResults li {
   padding: 10px 20px;
+  cursor: pointer;
+}
+
+.ListResults li:hover {
+  background-color: #01D277;
 }
