@@ -35,10 +35,15 @@ class App extends Component {
 
   }
 
+  closeListHandler = (e) => {
+    if(e.target.type !== 'search') {
+      this.setState({ movies: [] })
+    }
+  }
 
   render() {
     return (
-      <div className="App">
+      <div className="App" onClick={(e) => this.closeListHandler(e)}>
         <div className="Layout">
             <header className="Header">
               <div className="Logo">
