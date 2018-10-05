@@ -7,9 +7,13 @@ const listResults = props => {
         <li key={movie.id} onClick={() => getMovie(movie.id)}>{movie.title}</li>
     ))
     return (
-      <ul className="ListResults">
-        {displayedMovies}
-      </ul>
+      <div>
+       {displayedMovies.length > 0 && (
+         <ul className="ListResults">
+            {displayedMovies}
+         </ul>
+       )}
+      </div>
     )
 }
 
