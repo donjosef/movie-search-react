@@ -30,11 +30,11 @@ const movieInfo = props => {
              </div>
              <div>
                 <p>Duration</p>
-                <strong>{info.runtime} mins</strong>
+                <strong>{info.runtime ? `${info.runtime} min` : null}</strong>
              </div>
              <div>
                 <p>Box Office</p>
-                <strong>${info.revenue}</strong>
+                <strong>{info.revenue ? `$ ${Number(info.revenue).toLocaleString()}` : null}</strong>
              </div>
              <div>
                 <p>Vote Average</p>

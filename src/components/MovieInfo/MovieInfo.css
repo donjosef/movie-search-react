@@ -16,6 +16,18 @@
   width: 55%;
   text-align: left;
   padding: 20px;
+  color: white;
+}
+
+.Details h1 {
+  font-size: 3em;
+  margin: 10px 0;
+}
+
+.Details h3,
+.Details h4,
+.Details strong {
+  color: #00EC53;
 }
 
 .SubDetails {
@@ -29,4 +41,9 @@
 
 .SubDetails div p {
   margin-bottom: 0px;
+  font-size: 1.1em;
+}
+
+.SubDetails strong {
+  font-size: 1.6em;
 }
