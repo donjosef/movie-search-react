@@ -63,7 +63,7 @@ class App extends Component {
     const backgroundUrl = `https://image.tmdb.org/t/p/original/${this.state.selectedMovie.backdrop_path}`;
     let backGroundStyle = {
       backgroundColor: 'black',
-      height: '100vh'
+      minHeight: '100vh'
     };
     if(this.state.selectedMovie.backdrop_path) {
        backGroundStyle = {
