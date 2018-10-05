@@ -13,6 +13,15 @@ class App extends Component {
     selectedMovie: {}
   }
 
+  componentDidMount() {
+      axios.get(
+        `https://api.themoviedb.org/3/movie/27205?api_key=4f133e8a6ccd4f69d95e2ec10b7b0918&language=en-US`
+      ).then(res => {
+        const selectedMovie = res.data; //default movie when app mount
+        this.setState({ selectedMovie });
+
+      })
+  }
   changeInputHandler = (e) => {
     this.setState({ inputVal: e.target.value });
   }
@@ -51,8 +60,21 @@ class App extends Component {
   }
 
   render() {
+    const backgroundUrl = `https://image.tmdb.org/t/p/original/${this.state.selectedMovie.backdrop_path}`;
+    let backGroundStyle = {
+      backgroundColor: 'black',
+      height: '100vh'
+    };
+    if(this.state.selectedMovie.backdrop_path) {
+       backGroundStyle = {
+         minHeight: '100vh',
+        backgroundImage: `url(${backgroundUrl})`,
+        backgroundSize: 'cover'
+      };
+    }
+
     return (
-      <div className="App" onClick={(e) => this.closeListHandler(e)}>
+      <div style={backGroundStyle} className="App" onClick={(e) => this.closeListHandler(e)}>
         <div className="Layout">
             <header className="Header">
               <div className="Logo">
