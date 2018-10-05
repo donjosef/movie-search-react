@@ -1,8 +1,10 @@
 .SearchInput {
   width: 100%;
   border: none;
-  border-bottom: 1.5px solid black;
+  border-bottom: 1.5px solid white;
   outline: none;
   padding: 15px 15px 5px;
   font-size: 1.3em;
+  background-color: transparent;
+  color: white;
 }
