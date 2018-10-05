@@ -3,7 +3,10 @@ import './MovieInfo.css';
 
 const movieInfo = props => {
     const {info} = props;
-    const imageUrl = `https://image.tmdb.org/t/p/w500/${info.poster_path}`;
+    let imageUrl = null;
+    if('poster_path' in info) {
+      imageUrl = `https://image.tmdb.org/t/p/w500/${info.poster_path}`;
+    }
 
     let genres;
     if(info.genres) {
