@@ -19,6 +19,8 @@ class App extends Component {
   componentDidUpdate(prevProps, prevState) {
     if(prevState.inputVal !== this.state.inputVal && this.state.inputVal.length > 1) {
       this.getMovies(this.state.inputVal)
+    } else if(prevState.inputVal !== this.state.inputVal && this.state.inputVal.length < prevState.inputVal.length) {
+      this.setState({ movies: [] }) //when deleting the search query under or equal to 1 charachter
     }
   }
 
