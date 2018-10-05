@@ -1,4 +1,6 @@
 import React from 'react';
+import CSSTransition from 'react-transition-group/CSSTransition';
+
 import './ListResults.css';
 
 const listResults = props => {
@@ -14,13 +16,19 @@ const listResults = props => {
     }
     return (
       <div>
-       {displayedMovies.length > 0 && (
-         <ul className="ListResults" style={dynamicHeight}>
-            {displayedMovies}
-         </ul>
-       )}
+         <CSSTransition
+              in={displayedMovies.length > 0}
+              timeout={500}
+              mountOnEnter
+              unmountOnExit
+              classNames='translateY'>
+           <ul className="ListResults" style={dynamicHeight}>
+              {displayedMovies}
+           </ul>
+         </CSSTransition>
       </div>
     )
+
 }
 
 export default listResults;
