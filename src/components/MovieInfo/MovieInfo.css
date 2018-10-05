@@ -8,6 +8,10 @@
   width: 45%;
 }
 
+.Poster img {
+  width: 100%;
+}
+
 .Details {
   width: 55%;
   text-align: left;
@@ -21,4 +25,8 @@
 
 .SubDetails div {
   width: 50%;
+}
+
+.SubDetails div p {
+  margin-bottom: 0px;
 }

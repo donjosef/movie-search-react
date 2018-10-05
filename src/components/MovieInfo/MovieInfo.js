@@ -2,21 +2,41 @@ import React from 'react';
 import './MovieInfo.css';
 
 const movieInfo = props => {
+    const {info} = props;
+    const imageUrl = `https://image.tmdb.org/t/p/w500/${info.poster_path}`;
+
+    let genres;
+    if(info.genres) {
+       genres = info.genres.map(genre => genre.name).join(",");
+    }
+
     return (
       <article className="MovieInfo">
         <section className="Poster">
-           <img />
+           <img src={imageUrl}/>
         </section>
         <section className="Details">
-           <h1>title</h1>
-           <h3>Intro title</h3>
-           <p>Plot</p>
-           <h4></h4>
+           <h1>{info.title}</h1>
+           <h3>{info.tagline}</h3>
+           <p>{info.overview}</p>
+           <h4>{genres}</h4>
            <div className="SubDetails">
-             <div>Info</div>
-             <div>Info</div>
-             <div>Info</div>
-             <div>Info</div>
+             <div>
+                <p>Released Date</p>
+                <strong>{info.release_date}</strong>
+             </div>
+             <div>
+                <p>Duration</p>
+                <strong>{info.runtime} mins</strong>
+             </div>
+             <div>
+                <p>Box Office</p>
+                <strong>${info.revenue}</strong>
+             </div>
+             <div>
+                <p>Vote Average</p>
+                <strong>{info.vote_average}</strong>
+             </div>
            </div>
         </section>
       </article>
