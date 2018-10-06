@@ -16,7 +16,7 @@ const movieInfo = props => {
     return (
       <article className="MovieInfo">
         <section className="Poster">
-           <img src={imageUrl}/>
+           <img alt="movie poster" src={imageUrl}/>
         </section>
         <section className="Details">
            <h1>{info.title}</h1>
