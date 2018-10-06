@@ -10,7 +10,8 @@ class App extends Component {
   state = {
     inputVal: '',
     movies: [],
-    selectedMovie: {}
+    selectedMovie: {},
+    isMovieSelected: false
   }
 
   componentDidMount() {
@@ -23,12 +24,16 @@ class App extends Component {
       })
   }
   changeInputHandler = (e) => {
-    this.setState({ inputVal: e.target.value });
+    this.setState({
+      inputVal: e.target.value,
+      isMovieSelected: false //Once user select a movie, isMovieSelected will be true, and this will not make possible to make any request
+     });
   }
 
+
   componentDidUpdate(prevProps, prevState) {
-    if(prevState.inputVal !== this.state.inputVal && this.state.inputVal.length > 1) {
-      this.getMovies(this.state.inputVal)
+    if(prevState.inputVal !== this.state.inputVal && this.state.inputVal.length > 1 && !this.state.isMovieSelected) {
+      this.getMovies(this.state.inputVal) //so if user select a movie, it doesnt make a request again
     } else if(prevState.inputVal !== this.state.inputVal && this.state.inputVal.length < prevState.inputVal.length) {
       this.setState({ movies: [] }) //when deleting the search query under or equal to 1 charachter
     }
@@ -51,11 +56,15 @@ class App extends Component {
     }
   }
 
-  getMovieHandler = (selectedId) => {
+  getMovieHandler = (selectedId, selectedTitle) => {
     axios.get(`https://api.themoviedb.org/3/movie/${selectedId}?api_key=4f133e8a6ccd4f69d95e2ec10b7b0918&language=en-US`)
     .then(res => {
       const selectedMovie = res.data;
-      this.setState({ selectedMovie });
+      this.setState({
+        selectedMovie,
+        isMovieSelected: true, //so if user select a movie, it doesnt make any getMovies request
+        inputVal: selectedTitle
+      });
     })
   }
 
