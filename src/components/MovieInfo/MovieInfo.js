@@ -41,6 +41,7 @@ const movieInfo = props => {
                 <strong>{info.vote_average}</strong>
              </div>
            </div>
+           <button className='BtnTrailer'>View Trailer</button>
         </section>
       </article>
     )

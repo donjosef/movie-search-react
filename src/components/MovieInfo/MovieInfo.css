@@ -2,6 +2,7 @@
   background-color: rgba(0,0,0,0.76);
   display: flex;
   margin-top: 20px;
+  padding-bottom: 20px;
 }
 
 .Poster {
@@ -15,7 +16,7 @@
 .Details {
   width: 55%;
   text-align: left;
-  padding: 20px;
+  padding: 20px 20px 0 20px;
   color: white;
 }
 
@@ -47,4 +48,38 @@
 
 .SubDetails strong {
   font-size: 1.6em;
+}
+
+.BtnTrailer {
+  display: block;
+  width: 100%;
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 10px 0;
+  margin-top: 20px;
+  font-family: 'Nunito', sans-serif;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  position: relative;
+  transform: perspective(1px);
+  cursor: pointer;
+}
+
+.BtnTrailer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: scaleX(0);
+  transform-origin: 50%;
+  background: #01D277;
+  transition: all 0.3s;
+  z-index: -1;
+}
+
+.BtnTrailer:hover::before {
+  transform: scaleX(1);
 }
