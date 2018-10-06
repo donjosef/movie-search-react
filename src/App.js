@@ -77,7 +77,7 @@ class App extends Component {
     if(this.state.selectedMovie.backdrop_path) {
        backGroundStyle = {
          minHeight: '100vh',
-        backgroundImage: `url(${backgroundUrl})`,
+        backgroundImage: `linear-gradient(rgba(0,0,0,0.8) 15%, rgba(0,0,0,0.2) 40%), url(${backgroundUrl})`,
         backgroundSize: 'cover'
       };
     }
