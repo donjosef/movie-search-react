@@ -77,7 +77,6 @@ class App extends Component {
     };
     if(this.state.selectedMovie.backdrop_path) {
        backGroundStyle = {
-         minHeight: '100vh',
         backgroundImage: `linear-gradient(rgba(0,0,0,0.8) 15%, rgba(0,0,0,0.2) 40%), url(${backgroundUrl})`,
         backgroundSize: 'cover'
       };
@@ -97,6 +96,10 @@ class App extends Component {
             </header>
             <MovieInfo info={this.state.selectedMovie}/>
         </div>
+        <footer className="Footer">
+          <p>Designed & Developed by Giuseppe Montanaro</p>
+          <p><a href="#">View Code</a></p>
+        </footer>
       </div>
     );
   }

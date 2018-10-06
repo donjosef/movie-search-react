@@ -28,3 +28,22 @@
   width: 55%;
   position: relative;
 }
+
+.Footer {
+  background-color: #000;
+  color: grey;
+  padding: 20px 0;
+}
+
+.Footer p {
+  margin-bottom: 0px;
+}
+
+.Footer a {
+  color: grey;
+  text-decoration: none;
+}
+
+.Footer a:hover {
+  color: #00D474;
+}
