@@ -5,8 +5,12 @@ import './ListResults.css';
 
 const listResults = props => {
     const {movies, getMovie} = props;
-    const displayedMovies = movies.map(movie => (
-        <li key={movie.id} onClick={() => getMovie(movie.id, movie.title)}>{movie.title}</li>
+    const displayedMovies = movies.map((movie, idx) => (
+        <li
+          key={movie.id}
+          onClick={() => getMovie(movie.id, movie.title)}
+          onKeyPress={(e) => e.charCode === 13 ? getMovie(movie.id, movie.title) : null}
+          tabIndex='0'>{movie.title}</li>
     ));
     let dynamicHeight = null;
     if(displayedMovies.length <= 6) {

@@ -27,6 +27,7 @@
   cursor: pointer;
 }
 
-.ListResults li:hover {
+.ListResults li:hover,
+ .ListResults li:focus{
   background-color: #01D277;
 }
