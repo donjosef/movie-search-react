@@ -6,7 +6,7 @@ import './ListResults.css';
 const listResults = props => {
     const {movies, getMovie} = props;
     const displayedMovies = movies.map(movie => (
-        <li key={movie.id} onClick={() => getMovie(movie.id)}>{movie.title}</li>
+        <li key={movie.id} onClick={() => getMovie(movie.id, movie.title)}>{movie.title}</li>
     ));
     let dynamicHeight = null;
     if(displayedMovies.length <= 6) {
