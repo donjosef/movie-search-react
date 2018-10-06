@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SearchMovie from './components/SearchMovie/SearchMovie';
 import MovieInfo from './components/MovieInfo/MovieInfo';
 import ListResults from './components/ListResults/ListResults';
+import logo from './images/moviedb.png';
 import axios from 'axios';
 import './App.css';
 
@@ -87,7 +88,7 @@ class App extends Component {
         <div className="Layout">
             <header className="Header">
               <div className="Logo">
-                Img
+                <img src={logo}/>
               </div>
               <div className="SearchMovieContainer">
                 <SearchMovie inputVal={this.state.inputVal} changeInput={this.changeInputHandler}/>

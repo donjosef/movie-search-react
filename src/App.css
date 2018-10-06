@@ -16,6 +16,12 @@
 
 .Logo {
   width: 45%;
+  text-align: left;
+}
+
+.Logo img {
+    height: 75px;
+    margin-top: 10px;
 }
 
 .SearchMovieContainer {
