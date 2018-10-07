@@ -26,19 +26,19 @@ const movieInfo = props => {
            <div className="SubDetails">
              <div>
                 <p>Released Date</p>
-                <strong>{info.release_date}</strong>
+                <strong>{info.release_date ? info.release_date : '-'}</strong>
              </div>
              <div>
                 <p>Duration</p>
-                <strong>{info.runtime ? `${info.runtime} min` : null}</strong>
+                <strong>{info.runtime ? `${info.runtime} min` : '-'}</strong>
              </div>
              <div>
                 <p>Box Office</p>
-                <strong>{info.revenue ? `$ ${Number(info.revenue).toLocaleString()}` : null}</strong>
+                <strong>{info.revenue ? `$ ${Number(info.revenue).toLocaleString()}` : '-'}</strong>
              </div>
              <div>
                 <p>Vote Average</p>
-                <strong>{info.vote_average}</strong>
+                <strong>{info.vote_average ? info.vote_average : '-'}</strong>
              </div>
            </div>
            {props.trailerAvailable && (
