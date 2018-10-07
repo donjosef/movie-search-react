@@ -1,0 +1,41 @@
+.Modal {
+  width: 600px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px #bbb;
+  margin: auto;
+  padding: 20px;
+  position: fixed;
+  top: 25%;
+  left: 0;
+  right: 0;
+  transition: transform 0.3s;
+}
+
+.CloseModal {
+  background: #FF0000;
+  border: none;
+  color: white;
+  padding: 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* CSS Transition classes */
+
+.show-modal-enter {
+  transform: translateY(-9999px);
+}
+
+.show-modal-enter-active {
+  transform: translateY(0px);
+}
+
+.show-modal-exit {
+  transform: translateY(0);
+  transition: transform 2s;
+}
+
+.show-modal-exit-active {
+  transform: translateY(-9999px);
+}
