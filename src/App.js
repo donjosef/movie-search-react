@@ -17,7 +17,7 @@ class App extends Component {
 
   componentDidMount() {
       axios.get(
-        `https://api.themoviedb.org/3/movie/27205?api_key=4f133e8a6ccd4f69d95e2ec10b7b0918&language=en-US`
+        `http://api.themoviedb.org/3/movie/27205?api_key=4f133e8a6ccd4f69d95e2ec10b7b0918&append_to_response=videos`
       ).then(res => {
         const selectedMovie = res.data; //default movie when app mount
         this.setState({ selectedMovie });
@@ -43,6 +43,7 @@ class App extends Component {
   getMovies = (query) => {
     axios.get(`https://api.themoviedb.org/3/search/movie?api_key=4f133e8a6ccd4f69d95e2ec10b7b0918&query=${query}`)
     .then(res => {
+      console.log('movies', res.data)
       const regx = new RegExp(query, 'i');
       const movies = res.data.results.filter(({title}) => regx.test(title))
       .sort((a, b) => a.title > b.title ? 1 : -1 );
@@ -58,9 +59,11 @@ class App extends Component {
   }
 
   getMovieHandler = (selectedId, selectedTitle) => {
-    axios.get(`https://api.themoviedb.org/3/movie/${selectedId}?api_key=4f133e8a6ccd4f69d95e2ec10b7b0918&language=en-US`)
+
+    axios.get(`http://api.themoviedb.org/3/movie/${selectedId}?api_key=4f133e8a6ccd4f69d95e2ec10b7b0918&&language=en-US&append_to_response=videos`)
     .then(res => {
       const selectedMovie = res.data;
+      console.log(res.data)
       this.setState({
         selectedMovie,
         isMovieSelected: true, //so if user select a movie, it doesnt make any getMovies request
