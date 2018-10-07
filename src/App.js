@@ -49,7 +49,7 @@ class App extends Component {
       console.log('movies', res.data)
       const regx = new RegExp(query, 'i');
       const movies = res.data.results.filter(({title}) => regx.test(title))
-      .sort((a, b) => a.title > b.title ? 1 : -1 );
+      .sort((a,b) => b.popularity - a.popularity);
       this.setState({ movies })
     })
 
