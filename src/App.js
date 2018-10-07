@@ -66,7 +66,6 @@ class App extends Component {
     axios.get(`http://api.themoviedb.org/3/movie/${selectedId}?api_key=4f133e8a6ccd4f69d95e2ec10b7b0918&&language=en-US&append_to_response=videos`)
     .then(res => {
       const selectedMovie = res.data;
-      console.log(res.data)
       this.setState({
         selectedMovie,
         isMovieSelected: true, //so if user select a movie, it doesnt make any getMovies request
@@ -106,7 +105,7 @@ class App extends Component {
         <div className="Layout">
             <header className="Header">
               <div className="Logo">
-                <img src={logo}/>
+                <img src={logo} alt='Moviedb logo'/>
               </div>
               <div className="SearchMovieContainer">
                 <SearchMovie inputVal={this.state.inputVal} changeInput={this.changeInputHandler}/>
