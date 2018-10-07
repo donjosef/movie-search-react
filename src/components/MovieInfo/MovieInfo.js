@@ -1,11 +1,17 @@
 import React from 'react';
+import placeholderImage from '../../images/no-image-png-1.png';
 import './MovieInfo.css';
 
 const movieInfo = props => {
     const {info} = props;
     let imageUrl = null;
-    if('poster_path' in info) {
+    /* info.poster_path  is undefined initially, so this check avoids to make a request to url/undefined */
+    if(info.poster_path !== null && typeof info.poster_path === 'string') {
       imageUrl = `https://image.tmdb.org/t/p/w500/${info.poster_path}`;
+    }
+
+    if(info.poster_path === null) { //if the selected movie doesnt have a poster
+      imageUrl = placeholderImage;
     }
 
     let genres;
