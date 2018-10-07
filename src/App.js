@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import SearchMovie from './components/SearchMovie/SearchMovie';
 import MovieInfo from './components/MovieInfo/MovieInfo';
 import ListResults from './components/ListResults/ListResults';
+import Modal from './components/Modal/Modal';
+import Backdrop from './components/Modal/Backdrop/Backdrop';
 import logo from './images/moviedb.png';
 import axios from 'axios';
 import './App.css';
@@ -12,7 +14,8 @@ class App extends Component {
     inputVal: '',
     movies: [],
     selectedMovie: {},
-    isMovieSelected: false
+    isMovieSelected: false,
+    showModal: false
   }
 
   componentDidMount() {
@@ -72,6 +75,14 @@ class App extends Component {
     })
   }
 
+  showModalHandler = () => {
+    this.setState({ showModal: true })
+  }
+
+  closeModalHandler = () => {
+    this.setState({ showModal: false})
+  }
+
   render() {
     const backgroundUrl = `https://image.tmdb.org/t/p/original/${this.state.selectedMovie.backdrop_path}`;
     let backGroundStyle = {
@@ -83,6 +94,11 @@ class App extends Component {
         backgroundImage: `linear-gradient(rgba(0,0,0,0.8) 15%, rgba(0,0,0,0.2) 40%), url(${backgroundUrl})`,
         backgroundSize: 'cover'
       };
+    }
+
+    let trailerId = null;
+    if(this.state.selectedMovie.hasOwnProperty('videos') && this.state.selectedMovie.videos.results.length > 0) {
+      trailerId = this.state.selectedMovie.videos.results[0].key;
     }
 
     return (
@@ -97,7 +113,15 @@ class App extends Component {
                 <ListResults movies={this.state.movies} getMovie={this.getMovieHandler}/>
               </div>
             </header>
-            <MovieInfo info={this.state.selectedMovie}/>
+            <MovieInfo
+                info={this.state.selectedMovie}
+                showModal={this.showModalHandler}
+                trailerAvailable={trailerId}/>
+            <Backdrop show={this.state.showModal} close={this.closeModalHandler}/>
+            <Modal
+                show={this.state.showModal}
+                close={this.closeModalHandler}
+                trailerId={trailerId}/>
         </div>
         <footer className="Footer">
           <p>Designed & Developed by Giuseppe Montanaro</p>
