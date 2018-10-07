@@ -41,7 +41,9 @@ const movieInfo = props => {
                 <strong>{info.vote_average}</strong>
              </div>
            </div>
-           <button className='BtnTrailer'>View Trailer</button>
+           {props.trailerAvailable && (
+              <button className='BtnTrailer' onClick={props.showModal}>View Trailer</button>
+           )}
         </section>
       </article>
     )
