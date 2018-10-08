@@ -4,9 +4,19 @@ import MovieInfo from './components/MovieInfo/MovieInfo';
 import ListResults from './components/ListResults/ListResults';
 import Modal from './components/Modal/Modal';
 import Backdrop from './components/Modal/Backdrop/Backdrop';
+import Loader from './components/Loader/Loader';
 import logo from './images/moviedb.png';
 import axios from 'axios';
 import './App.css';
+
+function isEmpty(obj) {
+  for(let key in obj) {
+    if(key in obj) {
+      return false;
+    }
+  }
+  return true;
+}
 
 class App extends Component {
 
@@ -112,10 +122,12 @@ class App extends Component {
                 <ListResults movies={this.state.movies} getMovie={this.getMovieHandler}/>
               </div>
             </header>
-            <MovieInfo
-                info={this.state.selectedMovie}
-                showModal={this.showModalHandler}
-                trailerAvailable={trailerId}/>
+            {isEmpty(this.state.selectedMovie) ? <Loader /> : (
+              <MovieInfo
+                  info={this.state.selectedMovie}
+                  showModal={this.showModalHandler}
+                  trailerAvailable={trailerId}/>
+            )}
             <Backdrop show={this.state.showModal} close={this.closeModalHandler}/>
             <Modal
                 show={this.state.showModal}
