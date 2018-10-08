@@ -23,6 +23,7 @@ const modal = props => {
               height="315"
               src={`https://www.youtube.com/embed/${props.trailerId}`}
               frameBorder="0"
+              title={props.title}
               allow="autoplay; encrypted-media"
               allowFullScreen></iframe>
             <button className='CloseModal' onClick={props.close}>CLOSE</button>

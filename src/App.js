@@ -132,7 +132,8 @@ class App extends Component {
             <Modal
                 show={this.state.showModal}
                 close={this.closeModalHandler}
-                trailerId={trailerId}/>
+                trailerId={trailerId}
+                title={this.state.selectedMovie.title}/>
         </div>
         <footer className="Footer">
           <p>
