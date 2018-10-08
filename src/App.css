@@ -47,3 +47,35 @@
 .Footer a:hover {
   color: #00D474;
 }
+
+/* MEDIA QUERIES */
+
+@media (max-width: 868px) {
+  .Layout {
+    width: 90%;
+  }
+}
+
+@media (max-width: 690px) {
+  /* Header section */
+
+  .Header {
+    flex-direction: column;
+    text-align: center;
+    height: auto; /*important otherwise the header will be 90px */
+  }
+
+  .SearchMovieContainer {
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  .Logo {
+    text-align: center;
+    width: auto; /*make the container the same width as the child image */
+  }
+
+  .Logo img {
+    height: 65px;
+  }
+}

@@ -21,7 +21,7 @@
 }
 
 .Details h1 {
-  font-size: 3em;
+  font-size: 2.6em;
   margin: 10px 0;
   text-transform: uppercase;
 }
@@ -82,4 +82,28 @@
 
 .BtnTrailer:hover::before {
   transform: scaleX(1);
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 690px) {
+    .MovieInfo {
+      flex-wrap: wrap;
+    }
+
+    .Poster,
+    .Details {
+      width: 100%;
+    }
+  }
+
+
+@media (max-width: 497px) {
+
+  .Details h1 {
+    font-size: 2.3em;
+  }
+  .SubDetails div {
+    width: 100%;
+  }
 }
