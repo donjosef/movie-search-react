@@ -39,3 +39,15 @@
 .show-modal-exit-active {
   transform: translateY(-9999px);
 }
+
+/* MEDIA QUERIES MODAL */
+
+@media (max-width: 630px) {
+  .Modal {
+    width: 100%;
+  }
+
+  .Modal iframe {
+    width: 100%;
+  }
+}
