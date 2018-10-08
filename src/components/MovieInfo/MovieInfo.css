@@ -32,13 +32,17 @@
   color: #01D277;
 }
 
+/* SubDetails section */
+
 .SubDetails {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
+
 .SubDetails div {
-  width: 50%;
+  width: 47%;
 }
 
 .SubDetails div p {
@@ -47,7 +51,7 @@
 }
 
 .SubDetails strong {
-  font-size: 1.6em;
+  font-size: 1.5em;
 }
 
 .BtnTrailer {
