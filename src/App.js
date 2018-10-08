@@ -135,7 +135,10 @@ class App extends Component {
                 trailerId={trailerId}/>
         </div>
         <footer className="Footer">
-          <p>Designed & Developed by Giuseppe Montanaro</p>
+          <p>
+            Design inspired by <a href='http://www.stephenkempin.co.uk/' >Stephen Kempin</a>
+          </p>
+          <p>Developed by Giuseppe Montanaro.</p>
           <p><a href="#">View Code</a></p>
         </footer>
       </div>
