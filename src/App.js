@@ -140,7 +140,7 @@ class App extends Component {
             Design inspired by <a href='http://www.stephenkempin.co.uk/' >Stephen Kempin</a>
           </p>
           <p>Developed by Giuseppe Montanaro.</p>
-          <p><a href="#">View Code</a></p>
+          <p><a href="https://github.com/donjosef/movie-search-react">View Code</a></p>
         </footer>
       </div>
     );
