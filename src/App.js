@@ -30,7 +30,7 @@ class App extends Component {
 
   componentDidMount() {
       axios.get(
-        `http://api.themoviedb.org/3/movie/27205?api_key=4f133e8a6ccd4f69d95e2ec10b7b0918&append_to_response=videos`
+        `https://api.themoviedb.org/3/movie/27205?api_key=4f133e8a6ccd4f69d95e2ec10b7b0918&append_to_response=videos`
       ).then(res => {
         const selectedMovie = res.data; //default movie when app mount
         this.setState({ selectedMovie });
@@ -73,7 +73,7 @@ class App extends Component {
 
   getMovieHandler = (selectedId, selectedTitle) => {
 
-    axios.get(`http://api.themoviedb.org/3/movie/${selectedId}?api_key=4f133e8a6ccd4f69d95e2ec10b7b0918&&language=en-US&append_to_response=videos`)
+    axios.get(`https://api.themoviedb.org/3/movie/${selectedId}?api_key=4f133e8a6ccd4f69d95e2ec10b7b0918&&language=en-US&append_to_response=videos`)
     .then(res => {
       const selectedMovie = res.data;
       this.setState({
