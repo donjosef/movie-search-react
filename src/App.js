@@ -95,11 +95,6 @@ class App extends Component {
       };
     }
 
-    let trailerId = null;
-    if(this.state.selectedMovie.hasOwnProperty('videos') && this.state.selectedMovie.videos.results.length > 0) {
-      trailerId = this.state.selectedMovie.videos.results[0].key;
-    }
-
     return (
       <div style={backGroundStyle} className="App" onClick={(e) => this.closeListHandler(e)}>
         <div className="Layout">
@@ -116,7 +111,7 @@ class App extends Component {
               <MovieInfo info={this.state.selectedMovie} />
             )}
             <Modal
-                trailerId={trailerId}
+                selectedMovie={this.state.selectedMovie}
                 title={this.state.selectedMovie.title}/>
         </div>
         <footer className="Footer">

@@ -21,9 +21,15 @@ class Modal extends Component {
   }
 
   render() {
+    
+    let trailerId = null;
+    if(this.props.selectedMovie.hasOwnProperty('videos') && this.props.selectedMovie.videos.results.length > 0) {
+      trailerId = this.props.selectedMovie.videos.results[0].key;
+    }
+
     return (
       <>
-        {this.props.trailerId && (
+        {trailerId && (
           <button className='BtnTrailer' onClick={this.handleToggleModal}>View Trailer</button>
         )}
         <Backdrop show={this.state.isOpen} close={this.handleToggleModal}/>
@@ -37,7 +43,7 @@ class Modal extends Component {
             <iframe
               width="560"
               height="315"
-              src={`https://www.youtube.com/embed/${this.props.trailerId}`}
+              src={`https://www.youtube.com/embed/${trailerId}`}
               frameBorder="0"
               title={this.props.title}
               allow="autoplay; encrypted-media"
