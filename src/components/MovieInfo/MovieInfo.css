@@ -54,40 +54,6 @@
   font-size: 1.5em;
 }
 
-.BtnTrailer {
-  display: block;
-  width: 100%;
-  background-color: transparent;
-  color: #fff;
-  border: 2px solid #fff;
-  padding: 10px 0;
-  margin-top: 20px;
-  font-family: 'Nunito', sans-serif;
-  text-transform: uppercase;
-  font-size: 1.2em;
-  position: relative;
-  transform: perspective(1px);
-  cursor: pointer;
-}
-
-.BtnTrailer::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  transform: scaleX(0);
-  transform-origin: 50%;
-  background: #01D277;
-  transition: all 0.3s;
-  z-index: -1;
-}
-
-.BtnTrailer:hover::before {
-  transform: scaleX(1);
-}
-
 /* MEDIA QUERIES */
 
 @media (max-width: 690px) {
