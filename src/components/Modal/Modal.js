@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Component } from 'react';
+import Backdrop from './Backdrop/Backdrop'
 import CSSTransition from 'react-transition-group/CSSTransition'
 
 import './Modal.css';
@@ -8,11 +9,26 @@ const animationTiming = {
   exit: 600
 };
 
-const modal = props => {
+class Modal extends Component {
+  state = {
+    isOpen: false
+  }
 
+  handleToggleModal = () => {
+    this.setState(prevState => ({
+      isOpen: !prevState.isOpen
+    }))
+  }
+
+  render() {
     return (
-      <CSSTransition
-          in={props.show}
+      <>
+        {this.props.trailerId && (
+          <button className='BtnTrailer' onClick={this.handleToggleModal}>View Trailer</button>
+        )}
+        <Backdrop show={this.state.isOpen} close={this.handleToggleModal}/>
+        <CSSTransition
+          in={this.state.isOpen}
           timeout={animationTiming}
           mountOnEnter
           unmountOnExit
@@ -21,15 +37,19 @@ const modal = props => {
             <iframe
               width="560"
               height="315"
-              src={`https://www.youtube.com/embed/${props.trailerId}`}
+              src={`https://www.youtube.com/embed/${this.props.trailerId}`}
               frameBorder="0"
-              title={props.title}
+              title={this.props.title}
               allow="autoplay; encrypted-media"
               allowFullScreen></iframe>
-            <button className='CloseModal' onClick={props.close}>CLOSE</button>
+            <button className='CloseModal' onClick={this.handleToggleModal}>CLOSE</button>
           </div>
-       </CSSTransition>
+        </CSSTransition>
+
+
+      </>
     )
+  }
 }
 
-export default modal;
+export default Modal;
