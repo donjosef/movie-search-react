@@ -23,17 +23,16 @@
 
 .BtnTrailer {
   display: block;
-  width: 100%;
-  background-color: transparent;
+  width: 55%;
+  background-color:rgba(0,0,0,0.76);
   color: #fff;
   border: 2px solid #fff;
   padding: 10px 0;
-  margin-top: 20px;
   font-family: 'Nunito', sans-serif;
   text-transform: uppercase;
   font-size: 1.2em;
   position: relative;
-  transform: perspective(1px);
+  transform: translateX(82%)  perspective(1px);
   cursor: pointer;
 }
 
@@ -74,7 +73,14 @@
   transform: translateY(-9999px);
 }
 
-/* MEDIA QUERIES MODAL */
+/* MEDIA QUERIES */
+
+@media (max-width: 691px) {
+    .BtnTrailer {
+      width: 100%;
+      transform: translateX(0) perspective(1px);
+    }
+}
 
 @media (max-width: 630px) {
   .Modal {
