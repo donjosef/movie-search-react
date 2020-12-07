@@ -3,7 +3,6 @@ import SearchMovie from './components/SearchMovie/SearchMovie';
 import MovieInfo from './components/MovieInfo/MovieInfo';
 import ListResults from './components/ListResults/ListResults';
 import Modal from './components/Modal/Modal';
-import Backdrop from './components/Modal/Backdrop/Backdrop';
 import Loader from './components/Loader/Loader';
 import logo from './images/moviedb.png';
 import axios from 'axios';
@@ -25,7 +24,6 @@ class App extends Component {
     movies: [],
     selectedMovie: {},
     isMovieSelected: false,
-    showModal: false
   }
 
   componentDidMount() {
@@ -37,13 +35,13 @@ class App extends Component {
 
       })
   }
+
   changeInputHandler = (e) => {
     this.setState({
       inputVal: e.target.value,
       isMovieSelected: false //Once user select a movie, isMovieSelected will be true, and this will not make possible to make any request
      });
   }
-
 
   componentDidUpdate(prevProps, prevState) {
     if(prevState.inputVal !== this.state.inputVal && this.state.inputVal.length > 1 && !this.state.isMovieSelected) {
@@ -84,14 +82,6 @@ class App extends Component {
     })
   }
 
-  showModalHandler = () => {
-    this.setState({ showModal: true })
-  }
-
-  closeModalHandler = () => {
-    this.setState({ showModal: false})
-  }
-
   render() {
     const backgroundUrl = `https://image.tmdb.org/t/p/original/${this.state.selectedMovie.backdrop_path}`;
     let backGroundStyle = {
@@ -123,15 +113,9 @@ class App extends Component {
               </div>
             </header>
             {isEmpty(this.state.selectedMovie) ? <Loader /> : (
-              <MovieInfo
-                  info={this.state.selectedMovie}
-                  showModal={this.showModalHandler}
-                  trailerAvailable={trailerId}/>
+              <MovieInfo info={this.state.selectedMovie} />
             )}
-            <Backdrop show={this.state.showModal} close={this.closeModalHandler}/>
             <Modal
-                show={this.state.showModal}
-                close={this.closeModalHandler}
                 trailerId={trailerId}
                 title={this.state.selectedMovie.title}/>
         </div>
